@@ -5,34 +5,34 @@ from datetime import datetime
 
 
 class UserBase(BaseModel):
-    correo: EmailStr = Field(
+    email: EmailStr = Field(
         ...,
         example="myemail@gmail.com"
     )
-    nombres: str = Field(
+    name: str = Field(
         ...,
         min_length=3,
         max_length=25,
         example="Juan Jose"
     )
-    apellidos: str = Field(
+    last_name: str = Field(
         ...,
         min_length=3,
         max_length=25,
-        example=""
+        example="Gaviria"
     )
-    ano_nacimiento: datetime.date = Field(
-        ...,
-        min_length=3,
-        max_length=15,
-        example="Juan"
+    born_year: datetime = Field(
+        ...,        
     )
-    tipo_usuario: bool = Field(
-        ...,
-        min_length=3,
-        max_length=25,
-        example=""
+    data_create: datetime = Field(
+        ...,        
     )
+    phone: str = Field(
+        ...,   
+        min_length=8,
+        max_length=10,     
+    )
+    
     
 
 
@@ -44,7 +44,7 @@ class User(UserBase):
 
 
 class UserRegister(UserBase):
-    contrasena: str = Field(
+    password: str = Field(
         ...,
         min_length=8,
         max_length=16,
