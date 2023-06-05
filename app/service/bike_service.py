@@ -1,4 +1,4 @@
-from fastapi import HTTPException, status
+"""from fastapi import HTTPException, status
 
 
 from app.model.user_model import User as UserModel
@@ -38,4 +38,4 @@ def create_user(bike: bike_schema.UserRegister):
         born_year=db_user.born_year,
         data_create = db_user.data_create,
         phone = db_user.phone
-    )
+    )"""
