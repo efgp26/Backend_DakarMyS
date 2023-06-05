@@ -19,7 +19,7 @@ def get_password_hash(password):
     """
     return pwd_context.hash(password)
 
-def create_user(user: user_schema.UserRegister, rol: rol_schema.Rol):
+def create_user(user: user_schema.UserRegister, rol: int):
     #todo hacer validacion tambien por placa
     get_user = UserModel.filter((UserModel.email == user.email)).first()
     if get_user:
@@ -37,8 +37,9 @@ def create_user(user: user_schema.UserRegister, rol: rol_schema.Rol):
         born_year=user.born_year,        
         data_create=user.data_create,
         phone=user.phone,
-        rol_id=rol.id
+        rol_id = rol
     )
+
 
     db_user.save()
 

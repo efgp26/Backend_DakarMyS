@@ -6,6 +6,7 @@ from fastapi import Body
 from app.schema import user_schema
 from app.service import user_service
 from app.utils.database import get_db
+from app.schema.rol_schema import Rol
 
 
 router = APIRouter(prefix="/api/v1")
@@ -18,7 +19,7 @@ router = APIRouter(prefix="/api/v1")
     dependencies=[Depends(get_db)],
     summary="Creacion de un nuevo usuario"
 )
-def create_user(user: user_schema.UserRegister = Body(...)):
+def create_user(user: user_schema.UserRegister = Body(...),rol: int = Body(...)):
     """
     ## Crear nuevo usuario enla app
 
@@ -31,4 +32,4 @@ def create_user(user: user_schema.UserRegister = Body(...)):
     ### Returns
     - user: User info
     """
-    return user_service.create_user(user)
+    return user_service.create_user(user,rol)
